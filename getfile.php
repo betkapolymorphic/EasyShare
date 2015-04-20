@@ -1,5 +1,5 @@
 <?php
-    include_once 'storage_controller.php';
+    include_once 'storageController.php';
 
     if(!isset($_GET['link'])){
         die("Error : empty link");

@@ -1,6 +1,7 @@
 <?php
-include_once "db.php";
-include_once "storage_controller.php";
+
+include_once "storageController.php";
+
     function generateRandomString($length = 10) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -21,8 +22,9 @@ include_once "storage_controller.php";
 
 
         $targetFile =  $targetPath. $_FILES['file']['name'];  //5
+
         if(saveOnDb($targetFile,$sub_rand_directory)){
-            if(!mkdir($targetPath, 0700)){
+            if(!@mkdir($targetPath, 0777,true)){
                 die("can't create folder");
             }
             move_uploaded_file($tempFile,$targetFile); //6
