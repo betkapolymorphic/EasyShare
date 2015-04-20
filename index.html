@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html >
+<head lang="en">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="assets/css/index.css">
+
+    <link href="assets/css/roboto.min.css" rel="stylesheet">
+    <link href="assets/css/material.min.css" rel="stylesheet">
+    <link href="assets/css/ripples.min.css" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<p class="try-span">EasyShare - free file hosting with QR link</p>
+<form class="dropzone-form dz-clickable"  id="drop-section">
+    <div class="dz-message">
+        <span>Upload file here</span>
+        <div class="icon-preview"><i class="mdi-file-attachment"></i></div>
+        <div class="progress progress-striped active">
+            <div class="progress-bar" style="width: 0%"></div>
+        </div>
+
+    </div>
+</form>
+<button class="btn btn-primary btn-flat" data-toggle="modal" data-target="#link-modal">Colored</button>
+<div id="link-modal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Your link</h4>
+            </div>
+            <div class="modal-body">
+                <div id="qrcode"></div>
+            </div>
+            <br/>
+            <a id="link-href" href=""></a>
+
+            <div class="counter-down">
+
+                <span>Time left</span>
+            <span class="digit">20:00</span>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal">Dismiss</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<script src="assets/js/ripples.min.js"></script>
+<script src="assets/js/material.min.js"></script>
+<script src="/assets/js/dropzone.js"></script>
+<script src="/assets/js/qrcode.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<script src="assets/js/easyShare.js"></script>
+</body>
+</html>
