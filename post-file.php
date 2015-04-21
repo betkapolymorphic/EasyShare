@@ -28,7 +28,7 @@ include_once "storageController.php";
                 die("can't create folder");
             }
             move_uploaded_file($tempFile,$targetFile); //6
-            echo "http://color.com/getfile.php?link=".$sub_rand_directory;
+            echo "$server_link/g.php?l=".$sub_rand_directory;
         }else{
             echo "can't save in db";
         }

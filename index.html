@@ -17,7 +17,7 @@
 <body>
 
 <p class="try-span">EasyShare - free file hosting with QR link</p>
-<form class="dropzone-form dz-clickable"  id="drop-section">
+<form class="dropzone-form dz-clickable" enctype= multipart/form-data   id="drop-section">
     <div class="dz-message">
         <span>Upload file here</span>
         <div class="icon-preview"><i class="mdi-file-attachment"></i></div>
@@ -37,7 +37,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
                 <h4 class="modal-title">Your link</h4>
-                <a id="link-href" href=""></a>
+                <a target="_blank" id="link-href" href=""></a>
             </div>
             <div class="modal-body">
                 <div id="qrcode"></div>

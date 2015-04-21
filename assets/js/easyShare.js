@@ -17,6 +17,7 @@ myDropzone.on('uploadprogress',function(file, progress, bytesSent) {
 myDropzone.on('success',function(a,resp){
    showModal(resp.trim());
     console.log(resp);
+    return;
     $('.dz-message').hide();
     myDropzone.disable();
 

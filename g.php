@@ -1,10 +1,10 @@
 <?php
     include_once 'storageController.php';
 
-    if(!isset($_GET['link'])){
+    if(!isset($_GET['l'])){
         die("Error : empty link");
     }
-    $file = getFile($_GET['link']);
+    $file = getFile($_GET['l']);
 
     if ($file && file_exists($file) ) {
 
