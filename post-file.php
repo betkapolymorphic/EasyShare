@@ -1,6 +1,6 @@
 <?php
 
-include_once "storageController.php";
+    include_once "storageController.php";
 
     function generateRandomString($length = 10) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -25,16 +25,25 @@ include_once "storageController.php";
 
         if(saveOnDb($targetFile,$sub_rand_directory)){
             if(!@mkdir($targetPath, 0777,true)){
-                die("can't create folder");
+                $returnObject->code = 1;
+                $returnObject->text="can't create folder";
+                die(json_encode($returnObject));
             }
             move_uploaded_file($tempFile,$targetFile); //6
-            echo "$server_link/g.php?l=".$sub_rand_directory;
+            $returnObject->code = 0;
+            $returnObject->text="$server_link/g.php?l=".$sub_rand_directory;
+
         }else{
-            echo "can't save in db";
+            $returnObject->code = 2;
+            $returnObject->text="can't save in db";
+
         }
 
 
     }else{
-        echo  "empty";
+        $returnObject->code = 3;
+        $returnObject->text="you send empty";
+
     }
+    die(json_encode($returnObject));
 ?>

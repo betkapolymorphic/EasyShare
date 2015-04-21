@@ -5,8 +5,8 @@
 var myDropzone = new Dropzone("#drop-section", { url: "/post-file.php",maxFilesize: 8});
 var $progres_bar =  $('.progress-bar'),
     $progres = $(".progress");
-myDropzone.on("complete", function(file) {
-
+myDropzone.on("error", function() {
+  // $('.dz-preview').remove();
 });
 
 myDropzone.on('uploadprogress',function(file, progress, bytesSent) {
@@ -14,10 +14,19 @@ myDropzone.on('uploadprogress',function(file, progress, bytesSent) {
    $progres_bar.css('width',progress+"%");
     $progres.show();
 });
+
+
 myDropzone.on('success',function(a,resp){
-   showModal(resp.trim());
     console.log(resp);
-    return;
+    resp=JSON.parse(resp.trim());
+    if(resp.code!='0'){
+        alert("Error :"+resp.text);
+        return;
+    }
+    resp = resp.text;
+    showModal(resp.trim());
+
+
     $('.dz-message').hide();
     myDropzone.disable();
 

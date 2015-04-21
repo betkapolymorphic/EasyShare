@@ -1,6 +1,8 @@
 <?php
 
 include_once 'db.php';
+$returnObject = new stdClass();
+
 function saveOnDb($file_location,$link){
     $file_location = str_replace(DIRECTORY_SEPARATOR,DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR,$file_location);
     $q = "insert into data VALUES (null,'$file_location',now(),'$link')";
