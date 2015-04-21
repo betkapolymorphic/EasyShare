@@ -5,10 +5,16 @@
 var myDropzone = new Dropzone("#drop-section", { url: "/post-file.php",maxFilesize: 8});
 var $progres_bar =  $('.progress-bar'),
     $progres = $(".progress");
+var needHideInnerInfo = false;
 myDropzone.on("error", function() {
   // $('.dz-preview').remove();
+    needHideInnerInfo=true;
 });
-
+myDropzone.on("addedfile", function() {
+    // $('.dz-preview').remove();
+    if(needHideInnerInfo)
+        $('.dz-preview').first().remove();
+});
 myDropzone.on('uploadprogress',function(file, progress, bytesSent) {
    console.log(progress);
    $progres_bar.css('width',progress+"%");
