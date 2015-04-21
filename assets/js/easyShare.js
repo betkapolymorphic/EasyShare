@@ -54,6 +54,12 @@ var qrcode = new QRCode("qrcode");
 var currentTime = 60*20;//20min
 
 
+
+
+
+
+
+
 function showModal(link){
 
    qrcode.clear();

@@ -1,7 +1,7 @@
 <?php
 
     include_once "storageController.php";
-
+    include_once 'GoogleUrlApi.php';
     function generateRandomString($length = 10) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
@@ -30,8 +30,16 @@
                 die(json_encode($returnObject));
             }
             move_uploaded_file($tempFile,$targetFile); //6
+
+
+
             $returnObject->code = 0;
             $returnObject->text="$server_link/g.php?l=".$sub_rand_directory;
+
+          /*  $key = 'AIzaSyBEqCEu9KUw0Wy0Vo6qDH-dfPHOwXNBghw';
+            $googer = new GoogleURLAPI($key);
+            $returnObject->text=$googer->expand($returnObject->text);
+*/
 
         }else{
             $returnObject->code = 2;
