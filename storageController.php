@@ -18,7 +18,7 @@ function getFile($link){
     }
 }
 function removeOldFiles(){
-    $q = "SELECT iddata as id, storage FROM data where now()-create_date >= 1200 ";
+    $q = "SELECT iddata as id, storage FROM data where now()-create_date >= 2000 ";
     $toRemove = array();
     $result = mysql_query($q);
     while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) {
